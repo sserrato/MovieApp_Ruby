@@ -1,0 +1,18 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>This is the movie update</title>
+  </head>
+  <body>
+    <h1>Update film title</h1>
+      <form action="/m/update/<%= @film.id%>" method="post">
+        <input type="hidden" name="_method" value="put">
+        <label for="film[filmtitle]">Film title:</label>
+        <input name="film[filmtitle]" value="<%= @film.filmtitle %>">
+        <br>
+
+        <input type="submit" value="Update">
+      </form>
+  </body>
+</html>

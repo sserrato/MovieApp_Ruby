@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <% title = 'all the movies' %>
+  </head>
+  <body>
+    <h1>All the movies in the database page</h1>
+    <ul>
+    <%=  puts @films %>
+    <% @films.each do |f| %>
+    <a href="/m/<%=f.id%>"><li>
+      Film Title: <%= f.filmtitle  %> <br>
+      Film Release Year: <%= f.filmreleaseyear.to_s %> <br>
+      Film ID: <%= f.id.to_s %>
+    </li></a><br>  <a href="/m/update/<%=f.id%>"><button type="button" name="button">Update</button></a>
+    <form method="post" action="/m/<%= f.id %>/delete">
+      <button>Delete</button>
+    </form>
+    <% end %>
+    </ul>
+  </body>
+</html>

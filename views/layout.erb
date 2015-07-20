@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <% title= "Serrato Homework Ruby App" %>
+    <title> <%= title || 'Movie title' %> </title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <a href="/">Home</a>
+          <a href="/mov/all">All movies</a>
+          <a href="#">Add movie</a>
+          <a href="/u/all">All users</a>
+          <a href="#">Add user</a>
+        </ul>
+      </nav>
+    </header>
+    <%=yield %>
+
+  </body>
+</html>

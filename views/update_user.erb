@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Update User</title>
+  </head>
+  <body>
+    <h1>Update user name</h1>
+      <form method="post" action="/u/update/<%= @user.id %>" >
+        <input type="hidden" name="_method" value="patch">
+        <label for="user[name]">Name:</label>
+        <input name="user[name]" value="<%= @user.name %>">
+
+        <br>
+
+        <input type="submit" value="Update">
+      </form>
+  </body>
+</html>

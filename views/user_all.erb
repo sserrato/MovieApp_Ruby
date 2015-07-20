@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All users</title>
+  </head>
+  <body>
+   <h1>All users</h1>
+   <ul>
+    <% @users.each do |u| %>
+     <a href="/u/<%=u.id%>"><li>
+       Name: <%= u.name %> <br> Age: <%= u.age.to_s %> <br>ID: <%= u.id.to_s%>
+     </li></a>
+
+     <a href="/u/update/<%= u.id %>"> <button>Update</button></a>
+
+     <form method="post" action="/u/<%= u.id %>/delete">
+       <button>Delete</button>
+     </form>
+     <% end %>
+   </ul>
+  </body>
+</html>
