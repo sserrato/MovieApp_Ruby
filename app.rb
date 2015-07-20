@@ -54,14 +54,12 @@ class RedditApp < Sinatra::Base
 # Update movies
   get("/m/update/:id") do
     @film = Film.find_by({id: params[:id]})
+    @film.update({filmtitle:"this is the new name"})
     erb(:update_film)
   end
 
   patch("/m/update/:id") do
-    @film = Film.find(params[:id])
-    @film.update(params:film[filmtitle])
-    puts params
-    redirect("/m/#{:id}")
+    "Lets update #{params[:id]}"
   end
 
 # Destroy movies
