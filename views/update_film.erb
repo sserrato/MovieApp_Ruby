@@ -7,7 +7,7 @@
   <body>
     <h1>Update <%= @film.filmtitle %></h1>
       <form action="/m/update/<%= @film.id %>" method="post">
-        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="_method" value="put">
         <label for="film_title">Film title:</label>
         <input name="film_title" value="<%= @film.filmtitle %>">
         <br>

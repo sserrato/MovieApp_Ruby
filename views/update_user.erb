@@ -7,9 +7,9 @@
   <body>
     <h1>Update user name</h1>
       <form method="post" action="/u/update/<%= @user.id %>" >
-        <input type="hidden" name="_method" value="patch">
-        <label for="user[name]">Name:</label>
-        <input name="user[name]" value="<%= @user.name %>">
+        <input type="hidden" name="_method" value="put">
+        <label for="name">Name:</label>
+        <input name="name" value="<%= @user.name %>">
 
         <br>
 

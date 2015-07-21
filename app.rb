@@ -1,6 +1,6 @@
 require("sinatra")
 require("sqlite3")
-require "sinatra/activerecord"
+require("sinatra/activerecord")
 
 set(:database, {adapter: "sqlite3", database: "movies.db"})
 
@@ -54,12 +54,15 @@ class RedditApp < Sinatra::Base
 # Update movies
   get("/m/update/:id") do
     @film = Film.find_by({id: params[:id]})
-    @film.update({filmtitle:"this is the new name"})
     erb(:update_film)
   end
 
-  patch("/m/update/:id") do
+  put("/m/update/:id") do
     "Lets update #{params[:id]}"
+    @film = Film.find_by({id: params[:id]})
+    @film.update(filmtitle: params[:film_title])
+    redirect "/mov/all"
+
   end
 
 # Destroy movies
@@ -103,18 +106,19 @@ end
      erb(:update_user)
    end
 
-  post("/u/update/:id") do
+  put("/u/update/:id") do
     @user = User.find(params[:id])
     puts "This is the updated user"
-    @user.update(params[:name])
+    @user.update(name: params[:name])
     puts params
-    redirects ("/u/#{@user.id}")
+    redirect("/u/all")
   end
 
 # Destroy user
-  post "/u/:id/delete" do
+  post("/u/:id/delete") do
     @user = User.find(params[:id])
     @user.destroy
     redirect("/u/all")
   end
+
 end
